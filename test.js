@@ -96,8 +96,8 @@ function myPromiseAny(promises) {
   return new Promise(function(resolve, reject) {
     let rejects = 0;
     for (let prom of promises) {
-      prom.then(resolve).catch(function() {
-        countRejects++;
+      prom.then(resolve).catch(() => {
+        rejects++;
         if (rejects === promises.length) {
           reject('Error')
         }
