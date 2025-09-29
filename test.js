@@ -99,7 +99,7 @@ function myPromiseAny(promises) {
       prom.then(resolve).catch(function() {
         countRejects++;
         if (rejects === promises.length) {
-          reject('Error');
+          reject('Error')
         }
       });
     }
