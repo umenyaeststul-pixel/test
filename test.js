@@ -92,3 +92,19 @@ class List {
 
 }
 
+function myPromiseAny(promises) {
+  return new Promise(function(resolve, reject) {
+    let rejects = 0;
+    for (let prom of promises) {
+      prom.then(resolve).catch(function() {
+        countRejects++;
+        if (rejects === promises.length) {
+          reject('Error');
+        }
+      });
+    }
+  });
+}
+
+
+
